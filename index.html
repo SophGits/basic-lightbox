@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lightbox Thing for Patryk</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+
+	<section class="">
+
+		<button id="showModal">Show thing</button>
+
+		<div id="outer-box" class="hidden">
+			<div class="inner-box">
+
+				<div class="close-container">
+					<div id="close">X</div>
+				</div>
+
+				<img src="tree.jpg" />
+
+			</div>
+		</div>
+
+	</section>
+
+	<script>
+		var button = document.getElementById("showModal");
+		var close = document.getElementById("close");
+		var outerBox = document.getElementById("outer-box");
+		button.addEventListener("click", function(){
+			outerBox.className = "";
+		});
+		close.addEventListener("click", function(){
+			outerBox.className = "hidden";
+		});
+
+		var Lightbox = function(data){
+			this.colour = data.colour || 'black';
+			this.title = data.title || 'New Title';
+			this.info = function(){
+				console.log(this)
+			}
+		}
+
+		var data = {
+			colour: 'green',
+			title: 'Bob\'s Lightbox'
+		}
+
+		var newLightbox = Object.create(data);
+		// var newLightbox = new Lightbox(data);
+
+		console.log('title: ', newLightbox.title);
+
+	</script>
+</body>
+</html>
